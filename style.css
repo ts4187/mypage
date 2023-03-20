@@ -83,6 +83,7 @@
         cursor: pointer;
         outline: none;
     }
+
     .mybtns>button:hover {
         background-color: #3bd9d9;
         box-shadow: 0px 15px 20px
@@ -90,6 +91,7 @@
         color: #ffffff;
         transform: translateY(-7px);
     }
+
     .mybtns>button:active {
         transform: translateY(-1px);
     }
