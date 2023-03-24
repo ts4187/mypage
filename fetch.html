@@ -22,12 +22,41 @@
             padding: 10px;
             border: 1px solid;
         }
+
+        .morebike {
+            color: red;
+        }
     </style>
 
     <script>
         function q1() {
             fetch("http://spartacodingclub.shop/sparta_api/seoulbike").then(res => res.json()).then(data => {
+                $('#names-q1').empty()
                 let rows = data['getStationList']['row']
+                rows.forEach(a => {
+                    let name = a['stationName']
+                    let rack = a['rackTotCnt']
+                    let bike = a['parkingBikeTotCnt']
+
+
+                    let temp_html = ``
+                    if (bike < 5) {
+                        let temp_html = `<tr class= "morebike">
+                                            <td>${name}</td>
+                                            <td>${rack}</td>
+                                            <td>${bike}</td>
+                                        </tr>`
+                    }
+                    else {
+                        let temp_html = `<tr>
+                                            <td>${name}</td>
+                                            <td>${rack}</td>
+                                            <td>${bike}</td>
+                                        </tr>`
+                    }
+
+                    $('#names-q1').append(temp_html)
+                });
                 console.log(rows)
             })
 
